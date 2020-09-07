@@ -8,6 +8,7 @@ export default class GroupList extends Component {
     super(props);
     this.state = {
       classMate: [],
+      teams: [],
     };
   }
 
@@ -24,14 +25,30 @@ export default class GroupList extends Component {
       });
   }
 
+  getGroup = () => {
+    fetch('http://localhost:8080/classMate/group')
+      .then((response) => {
+        return response.json();
+      })
+      .then((teams) => {
+        this.setState({
+          teams,
+        });
+      });
+  };
+
   render() {
     return (
       <div className="groupList">
         <header>
           <h2>分组列表</h2>
-          <button className="btn">分组学员</button>
+          <button className="btn" onClick={this.getGroup}>
+            分组学员
+          </button>
         </header>
-        <GroupItem>GroupItem</GroupItem>
+        {Object.keys(this.state.teams).map((key) => {
+          return <GroupItem index={key} team={this.state.teams[key]} />;
+        })}
         <div className="classMateList">
           <h2>学员列表</h2>
           <div className="list">
