@@ -1,0 +1,24 @@
+.groupItem {
+  border: 1px solid gray;
+}
+.groupName {
+  height: 30px;
+  font-size: 24px;
+  background-color: #929aab;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.name {
+  display: flex;
+
+  list-style: none;
+}
+.name li {
+  width: 10%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #eee;
+  margin: 0 10px;
+}
