@@ -37,6 +37,23 @@ export default class GroupList extends Component {
       });
   };
 
+  addClassMate = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: '' }),
+    };
+    fetch('http://localhost:8080/classMate/add', requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((teams) => {
+        this.setState({
+          teams,
+        });
+      });
+  };
+
   render() {
     return (
       <div className="groupList">
@@ -59,6 +76,7 @@ export default class GroupList extends Component {
                 </div>
               );
             })}
+            <div className="nameItem">+添加学员</div>
           </div>
         </div>
       </div>
