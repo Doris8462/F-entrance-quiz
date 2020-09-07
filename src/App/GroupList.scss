@@ -1,0 +1,26 @@
+.groupList {
+  padding: 10px 15px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  background-color: #ea5455;
+  width: 120px;
+  height: 35px;
+  color: white;
+  border: none;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(8, 10%);
+}
+.nameItem {
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #eee;
+  margin: 10px;
+}
