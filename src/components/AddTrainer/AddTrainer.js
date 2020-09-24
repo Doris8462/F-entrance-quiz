@@ -1,41 +1,53 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Form, Input, InputNumber, Button } from 'antd';
+import { Link } from 'react-router-dom';
+import { Form, Input, Button } from 'antd';
+import '../AddTrainee/AddTrainee.scss';
+
 const layout = {
   labelCol: {
-    span: 8,
+    span: 6,
   },
   wrapperCol: {
-    span: 16,
+    span: 12,
   },
 };
 const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not validate email!',
-    number: '${label} is not a validate number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
+  required: '${label}不能为空!',
 };
 
-export default class AddTrainer extends Component {
+export default class Addtrainer extends Component {
   render() {
     const onFinish = (values) => {
-      console.log(values);
+      fetch('http://localhost:8080/trainers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.trainer.name,
+        }),
+      }).then((res) => {
+        if (res.status === 201) {
+          alert('添加成功');
+          window.history.go(-1);
+        } else alert('添加失败');
+      });
     };
     return (
       <div>
+        <h1 className="title">添加讲师</h1>
         <Form
           {...layout}
           name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
+          className="add-user"
         >
           <Form.Item
-            name={['user', 'name']}
-            label="Name"
+            name={['trainer', 'name']}
+            label="姓名"
             rules={[
               {
                 required: true,
@@ -44,39 +56,12 @@ export default class AddTrainer extends Component {
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            name={['user', 'email']}
-            label="Email"
-            rules={[
-              {
-                type: 'email',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name={['user', 'age']}
-            label="Age"
-            rules={[
-              {
-                type: 'number',
-                min: 0,
-                max: 99,
-              },
-            ]}
-          >
-            <InputNumber />
-          </Form.Item>
-          <Form.Item name={['user', 'website']} label="Website">
-            <Input />
-          </Form.Item>
-          <Form.Item name={['user', 'introduction']} label="Introduction">
-            <Input.TextArea />
-          </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
             <Button type="primary" htmlType="submit">
-              Submit
+              提交
+            </Button>
+            <Button type="default" className="cancel-btn">
+              <Link to="/">取消</Link>
             </Button>
           </Form.Item>
         </Form>

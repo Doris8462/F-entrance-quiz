@@ -1,7 +1,7 @@
-import React, { Component ,browserHistory} from 'react';
+import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
-import { Form, Input,Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import './AddTrainee.scss';
 
 const layout = {
