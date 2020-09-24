@@ -37,7 +37,7 @@ export default class TrainerList extends Component {
               </div>
             </Tooltip>
           ))}
-          <Link to="/addTrainer" className="name-item add-trainer">+添加讲师</Link>
+          <Link to="/addTrainer" className="name-item add-trainee">+添加讲师</Link>
         </div>
       </div>
     );
