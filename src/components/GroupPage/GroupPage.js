@@ -17,6 +17,7 @@ export default class GroupPage extends Component {
   render() {
     return (
       <div>
+        <GroupList> </GroupList>
         <TrainerList deleteUser={this.deleteUser}> </TrainerList>
         <TraineeList deleteUser={this.deleteUser}> </TraineeList>
       </div>
