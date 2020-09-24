@@ -1,0 +1,12 @@
+.trainee-list {
+    display: grid;
+    grid-template-columns: repeat(8, 10%);
+  }
+  .name-item {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #eee;
+    margin: 10px;
+  }
+  
