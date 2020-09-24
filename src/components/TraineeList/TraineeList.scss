@@ -1,6 +1,6 @@
 .trainee-list {
     display: grid;
-    grid-template-columns: repeat(8, 10%);
+    grid-template-columns: repeat(8, 12%);
   }
   .name-item {
     height: 30px;
@@ -8,5 +8,8 @@
     line-height: 30px;
     background: #eee;
     margin: 10px;
+  }
+  .add-trainee{
+      width: 100px;
   }
   
