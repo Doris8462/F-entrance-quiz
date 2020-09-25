@@ -28,7 +28,9 @@ export default class TrainerList extends Component {
       <div>
         <h2>讲师列表</h2>
         <div className="trainee-list">
+          {/*TODO feedback: 这里没有使用到ES6的解构赋值*/}
           {Object.keys(this.state.trainers).map((key) => (
+              // TODO feedback: 列表元素没有使用ul li
             <Tooltip key={this.state.trainers[key].id}
               title={`${this.state.trainers[key].id} ${this.state.trainers[key].name}`}
             >

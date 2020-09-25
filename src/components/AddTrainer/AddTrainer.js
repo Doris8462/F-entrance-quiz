@@ -15,10 +15,12 @@ const layout = {
 const validateMessages = {
   required: '${label}不能为空!',
 };
-
+//TODO feedback: 命名格式不规范Addtrainer -> AddTrainer
 export default class Addtrainer extends Component {
   render() {
+    //TODO feedback: 方法命名没有体现业务逻辑
     const onFinish = (values) => {
+      //TODO feedback: API请求没有抽取到单独的utils文件里面去
       fetch('http://localhost:8080/trainers', {
         method: 'POST',
         headers: {

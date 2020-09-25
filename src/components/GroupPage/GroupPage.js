@@ -16,6 +16,7 @@ export default class GroupPage extends Component {
 
   render() {
     return (
+      //  TODO feedback: 没有使用main标签
       <div>
         <GroupList> </GroupList>
         <TrainerList deleteUser={this.deleteUser}> </TrainerList>

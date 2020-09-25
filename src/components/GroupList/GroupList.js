@@ -27,6 +27,7 @@ export default class GroupList extends Component {
 
   render() {
     return (
+        //  TODO feedback: 没有使用section标签
       <div className="group-list">
         <h2>分组列表</h2>
         <button className="group-btn" onClick={this.getGroups}>

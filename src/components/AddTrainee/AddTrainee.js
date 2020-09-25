@@ -25,7 +25,9 @@ const validateMessages = {
 
 export default class AddTrainee extends Component {
   render() {
+    //TODO feedback: 方法命名没有体现业务逻辑
     const onFinish = (values) => {
+      //TODO feedback: API请求没有抽取到单独的utils文件里面去
       fetch('http://localhost:8080/trainees', {
         method: 'POST',
         headers: {
@@ -33,6 +35,7 @@ export default class AddTrainee extends Component {
           Accept: 'application/json',
         },
         body: JSON.stringify({
+          //TODO feedback: 没有使用ES6的解构赋值
           name: values.trainee.name,
           office: values.trainee.office,
           email: values.trainee.email,
